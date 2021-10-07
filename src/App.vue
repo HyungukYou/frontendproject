@@ -9,6 +9,7 @@
       {{logo}}
       <h4>{{ products[0] }}</h4>
       <p>{{ price1 }} 만원</p>
+      <button @click="신고수++">허위매물신고</button> <span>신고수 : {{신고수}}</span>
     </div>
     <div>
       <h4>{{ products[1] }}</h4>
@@ -29,6 +30,7 @@ export default {
   name: 'App',
   data(){ // 데이터 보관
     return{
+      신고수 : 0,
       price1 : 60, // 자료 이름 , 자료 내
       price2 : 70,
       price3 : 80,
@@ -37,6 +39,9 @@ export default {
       products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       메뉴들 : ['Home','Shop','About'],
     }
+  },
+  methods : {
+
   },
   components: {
   }
