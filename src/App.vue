@@ -9,15 +9,17 @@
       {{logo}}
       <h4>{{ products[0] }}</h4>
       <p>{{ price1 }} 만원</p>
-      <button @click="신고수++">허위매물신고</button> <span>신고수 : {{신고수}}</span>
+      <button @click="신고수[0]++">허위매물신고</button> <span>신고수 : {{신고수[0]}}</span>
     </div>
     <div>
       <h4>{{ products[1] }}</h4>
       <p>{{ price2 }} 만원</p>
+      <button @click="신고수[1]++">허위매물신고</button> <span>신고수 : {{신고수[1]}}</span>
     </div>
     <div>
       <h4>{{ products[2]}}</h4>
       <p>{{ price3 }} 만원</p>
+      <button @click="신고수[2]++">허위매물신고</button> <span>신고수 : {{신고수[2]}}</span>
     </div>
   </div>
 </template>
@@ -30,7 +32,7 @@ export default {
   name: 'App',
   data(){ // 데이터 보관
     return{
-      신고수 : 0,
+      신고수 : [0,0,0],
       price1 : 60, // 자료 이름 , 자료 내
       price2 : 70,
       price3 : 80,
