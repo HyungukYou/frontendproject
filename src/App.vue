@@ -17,22 +17,34 @@
 
     <div>
       {{logo}}
-      <img src="./assets/room0.jpg" class="room-img">
-      <h4 @click="모달창열렸니 == true">{{ products[0] }}</h4>
-      <p>{{ price1 }} 만원</p>
-      <button @click="신고수[0]++">허위매물신고</button> <span>신고수 : {{신고수[0]}}</span>
+      <img :src="원룸들[0].image" class="room-img">
+      <h4>{{원룸들[0].title}}</h4>
+      <p>{{ 원룸들[0].price}} 만원</p>
     </div>
     <div>
-      <img src="./assets/room1.jpg" class="room-img">
-      <h4>{{ products[1] }}</h4>
-      <p>{{ price2 }} 만원</p>
-      <button @click="신고수[1]++">허위매물신고</button> <span>신고수 : {{신고수[1]}}</span>
+      <img :src="원룸들[1].image" class="room-img">
+      <h4>{{ 원룸들[1].title }}</h4>
+      <p>{{ 원룸들[1].price }} 만원</p>
     </div>
     <div>
-      <img src="./assets/room2.jpg" class="room-img">
-      <h4>{{ products[2]}}</h4>
-      <p>{{ price3 }} 만원</p>
-      <button @click="신고수[2]++">허위매물신고</button> <span>신고수 : {{신고수[2]}}</span>
+      <img :src="원룸들[2].image" class="room-img">
+      <h4>{{ 원룸들[2].title}}</h4>
+      <p>{{ 원룸들[2].price }} 만원</p>
+    </div>
+    <div>
+      <img :src="원룸들[3].image" class="room-img">
+      <h4>{{ 원룸들[3].title}}</h4>
+      <p>{{ 원룸들[3].price }} 만원</p>
+    </div>
+    <div>
+      <img :src="원룸들[4].image" class="room-img">
+      <h4>{{ 원룸들[4].title}}</h4>
+      <p>{{ 원룸들[4].price }} 만원</p>
+    </div>
+    <div>
+      <img :src="원룸들[5].image" class="room-img">
+      <h4>{{ 원룸들[5].title}}</h4>
+      <p>{{ 원룸들[5].price }} 만원</p>
     </div>
   </div>
 </template>
@@ -41,10 +53,13 @@
   var array = [10,20,30];
   array[0]
 
+  import data from './assets/oneroom.js';
+
 export default {
   name: 'App',
   data(){ // 데이터 보관
     return{
+      원룸들 : data,
       모달창열렸니 : true,
       신고수 : [0,0,0],
       price1 : 60, // 자료 이름 , 자료 내
