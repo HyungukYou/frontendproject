@@ -6,12 +6,17 @@
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
 
-    <Discount></Discount>
+    <Discount/>
+
+    <Card :원룸="원룸들[i]" v-for="(작명,i) in 원룸들" :key="작명"/>
+<!--    <Card :원룸="원룸들[1]"/>-->
+<!--    <Card :원룸="원룸들[2]"/>-->
+<!--    <Card :원룸="원룸들[3]"/>-->
+<!--    <Card :원룸="원룸들[4]"/>-->
+<!--    <Card :원룸="원룸들[5]"/>-->
 
 
-
-
-    <div>
+<!--    <div>
       {{logo}}
       <img :src="원룸들[0].image" class="room-img">
       <h4>{{원룸들[0].title}}</h4>
@@ -47,7 +52,7 @@
       <img :src="a.image" class="room-img">
       <h4 @click="모달창열렸니 = true; 누른거 = i ">{{ a.title}}</h4>
       <p>{{ a.price }} 만원</p>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -58,11 +63,13 @@
 
   import data from './assets/oneroom.js';
   import Model from "@/Model";
+  import Card from "@/Card";
 
 export default {
   name: 'App',
   data(){ // 데이터 보관
     return{
+      오브젝트 : {name : 'kim' , age:20},
       누른거 : 0,
       원룸들 : data,
       모달창열렸니 : true,
@@ -84,6 +91,7 @@ export default {
   components: {
     Model,
     Discount,
+    Card,
   }
 }
 </script>
