@@ -62,3 +62,7 @@ import / export 문법 배우
 모달창 내부 완성하기
 추가로 배울 v-if/v-else 문법 정리 
 ```
+### Vue 8강 주요 내용
+```
+HTML 복잡해보이면 컴포넌트 Component 만들어보기
+```

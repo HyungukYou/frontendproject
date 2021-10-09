@@ -4,7 +4,9 @@
     <div class="black-bg" v-if="모달창열렸니 == true">
       <div class="white-bg">
         <h4>{{ 원룸들[누른거].title }}</h4>
-        <p>상세페이지 내용임</p>
+        <p>{{ 원룸들[누른거].price }}</p>
+        <p>{{ 원룸들[누른거].content }}</p>
+        <Discount/>
         <button @click="모달창열렸니 = false">닫기</button>
       </div>
     </div>
@@ -13,6 +15,9 @@
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
 
+    <Discount></Discount>
+
+
 
 
     <div>
@@ -20,6 +25,7 @@
       <img :src="원룸들[0].image" class="room-img">
       <h4>{{원룸들[0].title}}</h4>
       <p>{{ 원룸들[0].price}} 만원</p>
+      <button @click="increase">허위매물신고</button> <span> 신고수 : {{신고수[0]}} </span>
     </div>
     <div>
       <img :src="원룸들[1].image" class="room-img">
@@ -55,6 +61,7 @@
 </template>
 
 <script>
+  import Discount from "@/Discount";
   var array = [10,20,30];
   array[0]
 
@@ -78,9 +85,12 @@ export default {
     }
   },
   methods : {
-
+    increase(){
+      this.신고수 +=1;
+    }
   },
   components: {
+    Discount,
   }
 }
 </script>
@@ -105,6 +115,12 @@ div {
 .room-img {
   width: 100%;
   margin-top: 40px;
+}
+.discount {
+  background: #eee;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
