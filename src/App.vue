@@ -1,16 +1,7 @@
 <template>
   <div>
 
-    <div class="black-bg" v-if="모달창열렸니 == true">
-      <div class="white-bg">
-        <h4>{{ 원룸들[누른거].title }}</h4>
-        <p>{{ 원룸들[누른거].price }}</p>
-        <p>{{ 원룸들[누른거].content }}</p>
-        <Discount/>
-        <button @click="모달창열렸니 = false">닫기</button>
-      </div>
-    </div>
-
+    <Model :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
     <div class="menu">
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
@@ -66,6 +57,7 @@
   array[0]
 
   import data from './assets/oneroom.js';
+  import Model from "@/Model";
 
 export default {
   name: 'App',
@@ -90,6 +82,7 @@ export default {
     }
   },
   components: {
+    Model,
     Discount,
   }
 }

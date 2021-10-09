@@ -66,3 +66,7 @@ import / export 문법 배우
 ```
 HTML 복잡해보이면 컴포넌트 Component 만들어보기
 ```
+### Vue 9강 주요 내용
+```
+props 전송하는 법
+```
