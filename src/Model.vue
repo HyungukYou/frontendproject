@@ -3,6 +3,7 @@
     <div class="white-bg">
       <h4>{{ 원룸들[누른거].title }}</h4>
       <input v-model="month">
+      <input type="range" min="1" max="12">
 <!--      <input type="checkbox" v-model="month">-->
 <!--      <input @input="month = $event.target.value">-->
       <select v-model="month">
@@ -23,8 +24,23 @@ export default {
   name: 'Model',
   data(){
     return{
-      month : '',
+      month : 1,
     }
+  },
+  // watch : {
+  //   month(a) {
+  //     if (a >= 13){
+  //       alert('13이상 입력하지 마셈')
+  //     }
+  //   }
+  // },
+  watch : {
+    month(b){
+      if (isNaN(b) == true){
+        alert('문자입력하지마라');
+        this.month = 1;
+      }
+    },
   },
   props : {
     원룸들 : Array,
