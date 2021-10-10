@@ -2,9 +2,18 @@
   <div class="black-bg" v-if="모달창열렸니 == true">
     <div class="white-bg">
       <h4>{{ 원룸들[누른거].title }}</h4>
-      <p>{{ 원룸들[누른거].price }}</p>
+      <input v-model="month">
+<!--      <input type="checkbox" v-model="month">-->
+<!--      <input @input="month = $event.target.value">-->
+      <select v-model="month">
+        <option>1</option>
+        <option>3</option>
+        <option>6</option>
+        <option>12</option>
+      </select>
       <p>{{ 원룸들[누른거].content }}</p>
-      <button @click="모달창열렸니 = false">닫기</button>
+      <p> {{ month }}개월 선택함 : {{ 원룸들[누른거].price * month }}</p>
+      <button @click="$emit('closeModel')">닫기</button>
     </div>
   </div>
 </template>
@@ -12,6 +21,11 @@
 <script>
 export default {
   name: 'Model',
+  data(){
+    return{
+      month : '',
+    }
+  },
   props : {
     원룸들 : Array,
     누른거 : Number,

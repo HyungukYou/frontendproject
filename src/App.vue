@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <Model :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
+    <Model @closeModel="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
     <div class="menu">
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
@@ -72,7 +72,7 @@ export default {
       오브젝트 : {name : 'kim' , age:20},
       누른거 : 0,
       원룸들 : data,
-      모달창열렸니 : true,
+      모달창열렸니 : false,
       신고수 : [0,0,0],
       price1 : 60, // 자료 이름 , 자료 내
       price2 : 70,
