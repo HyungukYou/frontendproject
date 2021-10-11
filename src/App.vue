@@ -1,7 +1,11 @@
 <template>
   <div>
 
-    <Model @closeModel="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
+<!--    <div class="start" :class="{ end : 모달창열렸니 }">-->
+    <transition name="fade">
+      <Model @closeModel="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
+    </transition>
+<!--    </div>-->
     <div class="menu">
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
@@ -97,6 +101,31 @@ export default {
 </script>
 
 <style>
+.fade-leave-from{
+  opacity: 1;
+}
+.fade-leave-active{
+  transition: all 1s;
+}
+.fade-leave-to{
+  opacity: 0;
+}
+.fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-active{
+  transition: all 1s;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+.start {
+  opacity: 0;
+  transition: all 1s;
+}
+.end {
+  opacity: 1;
+}
 body {
   margin: 0
 }
