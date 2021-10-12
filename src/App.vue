@@ -10,7 +10,7 @@
       <a v-for="a in 메뉴들" :key="a"> {{ a }}</a>
     </div>
 
-    <Discount/>
+    <Discount v-if="showDiscount == true"/>
 
     <button @click="priceSort">가격순정렬</button>
     <button @click="sortBack">되돌리기</button>
@@ -63,10 +63,9 @@
 </template>
 
 <script>
-  import Discount from "@/Discount";
   var array = [10,20,30];
   array[0]
-
+  import Discount from "@/Discount";
   import data from './assets/oneroom.js';
   import Model from "@/Model";
   import Card from "@/Card";
@@ -75,6 +74,7 @@ export default {
   name: 'App',
   data(){ // 데이터 보관
     return{
+      showDiscount : true,
       원룸들오리지널 : [...data],
       오브젝트 : {name : 'kim' , age:20},
       누른거 : 0,
@@ -101,8 +101,19 @@ export default {
       this.원룸들.sort(function (a,b){
         return a.price - b.price
       })
-    }
+    },
   },
+
+
+  created() {
+
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.showDiscount =false;
+    },2000);
+  },
+
   components: {
     Model,
     Discount,
